@@ -4,9 +4,11 @@ const tiempoRestante = document.querySelector('#tiempoRestante')
 const puntaje = document.querySelector('#puntaje')
 
 let resultado = 0;
-let hitPostition
+let hitTopo
 let tiempoTotal = 60;
 let timerId = null
+
+moverTopo();
 
 function randomCuadro () {
     cuadros.forEach(cuadro => {
@@ -16,15 +18,15 @@ function randomCuadro () {
     let randomCuadro = cuadros[Math.floor(Math.random() * 9)]
     randomCuadro.classList.add('topo')
 
-    hitPostition = randomCuadro.id;
+    hitTopo = randomCuadro.id;
 }
 
 cuadros.forEach(cuadro => {
     cuadro.addEventListener('mousedown', () => {
-        if(cuadro.id == hitPostition) {
+        if(cuadro.id == hitTopo) {
             resultado++
             puntaje.textContent = resultado
-            hitPostition = null
+            hitTopo = null
         }
     })
 })
@@ -32,7 +34,6 @@ cuadros.forEach(cuadro => {
 function moverTopo () {
     timerId = setInterval(randomCuadro, 500)
 }
-moverTopo();
 
 function contador () {
     tiempoTotal--

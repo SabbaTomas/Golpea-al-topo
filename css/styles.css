@@ -12,5 +12,6 @@
 }
 
 .topo {
-    background-color: blue;
+    background-image: url(/topo.jpg);
+    background-size: cover;
 }

@@ -5,7 +5,8 @@ const puntaje = document.querySelector('#puntaje')
 
 let resultado = 0;
 let hitPostition
-let tiempoTotal = 10;
+let tiempoTotal = 60;
+let timerId = null
 
 function randomCuadro () {
     cuadros.forEach(cuadro => {
@@ -29,8 +30,7 @@ cuadros.forEach(cuadro => {
 })
 
 function moverTopo () {
-    let timerId = null
-    timerId = setInterval(randomCuadro, 1000)
+    timerId = setInterval(randomCuadro, 500)
 }
 moverTopo();
 
@@ -40,6 +40,7 @@ function contador () {
 
     if(tiempoTotal == 0){
         clearInterval(Temporadizador)
+        clearInterval(timerId)
         alert("Gamer Over! tu resultado es: " + resultado)
     }
 }
